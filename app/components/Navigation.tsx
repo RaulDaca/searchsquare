@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ChevronDown, Menu, X, Users, Globe, Database, Mail, CheckCircle, ShieldCheck, UserCheck } from 'lucide-react'
 
 interface NavItem {
@@ -30,10 +31,11 @@ const navItems: NavItem[] = [
   { title: "Resources", items: [] },
 ]
 
-export default function ZIndexFixedNavigation() {
+export default function UpdatedDropdownNavigationWithImage() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
+  const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const handleToggle = useCallback((title: string) => {
     setOpenDropdown(prevDropdown => prevDropdown === title ? null : title)
@@ -45,7 +47,7 @@ export default function ZIndexFixedNavigation() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (openDropdown && dropdownRefs.current[openDropdown] && !dropdownRefs.current[openDropdown]?.contains(event.target as Node)) {
         setOpenDropdown(null)
       }
     }
@@ -54,10 +56,31 @@ export default function ZIndexFixedNavigation() {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
+  }, [openDropdown])
+
+  const handleMouseEnter = useCallback((title: string) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
+    setOpenDropdown(title)
+  }, [])
+
+  const handleMouseLeave = useCallback((title: string) => {
+    timeoutRef.current = setTimeout(() => {
+      setOpenDropdown(null)
+    }, 100)
   }, [])
 
   const renderNavItems = navItems.map((item) => (
-    <div key={item.title} className="relative" ref={dropdownRef}>
+    <div 
+      key={item.title} 
+      className="relative" 
+      ref={(el: HTMLDivElement | null) => {
+        if (el) dropdownRefs.current[item.title] = el;
+      }}
+      onMouseEnter={() => handleMouseEnter(item.title)}
+      onMouseLeave={() => handleMouseLeave(item.title)}
+    >
       <button
         className="flex items-center space-x-1 text-white hover:text-purple-400 transition-colors duration-200 text-lg font-semibold"
         onClick={() => handleToggle(item.title)}
@@ -69,20 +92,44 @@ export default function ZIndexFixedNavigation() {
       </button>
       {openDropdown === item.title && item.items.length > 0 && (
         <div 
-          className="absolute left-0 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50"
+          className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-[1000px] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 flex"
+          onMouseEnter={() => handleMouseEnter(item.title)}
+          onMouseLeave={() => handleMouseLeave(item.title)}
         >
-          <div className="py-2" role="menu" aria-orientation="vertical" aria-labelledby={`${item.title}-menu`}>
+          <div className="w-1/2 py-4" role="menu" aria-orientation="vertical" aria-labelledby={`${item.title}-menu`}>
             {item.items.map((subItem) => (
               <Link
                 key={subItem.name}
                 href="#"
-                className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+                className="flex items-center px-6 py-4 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200 font-bold"
                 role="menuitem"
               >
-                <subItem.icon className={`w-5 h-5 mr-3 ${subItem.color}`} />
+                <subItem.icon className={`w-8 h-8 mr-4 ${subItem.color}`} />
                 {subItem.name}
               </Link>
             ))}
+          </div>
+          <div className="w-1/2 bg-gray-50 p-6 rounded-r-md flex items-center justify-center">
+            <div className="flex items-center space-x-4">
+              <div className="text-left">
+                <h3 className="text-3xl font-bold mb-2 text-black">Find & Close Your Ideal Clients</h3>
+                <p className="text-gray-600 mb-4">
+                  Instantly turns leads into clients with Automated Outreach, Deliverability Network, Lead Database & CRM
+                </p>
+                <button className="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition-colors duration-200 text-base font-semibold shadow-md hover:shadow-lg">
+                  BOOK A DEMO
+                </button>
+              </div>
+              <div className="flex-shrink-0">
+                <Image
+                  src="/images/IMG_1366-Photoroom.png"
+                  alt="Product illustration"
+                  width={200}
+                  height={200}
+                  className="object-contain"
+                />
+              </div>
+            </div>
           </div>
         </div>
       )}
@@ -98,7 +145,7 @@ export default function ZIndexFixedNavigation() {
             <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          <span>searchSQUARE.ai</span>
+          <span>searchSQUARE</span>
         </Link>
         
         <button 
