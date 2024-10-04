@@ -3,22 +3,22 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <div className="bg-gradient-to-tl from-purple-900 via-black to-black text-white relative overflow-hidden">
-      <main className="container mx-auto px-4 py-16 md:py-24 lg:py-32 text-center relative z-10">
+    <div className="bg-gradient-to-tl from-purple-900 via-black to-black text-white relative overflow-hidden h-[90vh]">
+      <main className="container mx-auto px-4 pt-12 pb-28 md:pt-20 md:pb-36 lg:pt-24 lg:pb-44 text-center relative z-10">
         <div className="max-w-5xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 lg:mb-8">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 lg:mb-6">
             Rank, Boost & Traffic 
             <br />
             <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
               AI driven SEO.
             </span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 lg:mb-10 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl mb-6 lg:mb-8 max-w-3xl mx-auto">
             KI gesteuerte Suchmaschinenoptimierung für maximale Performance. Entdecken Sie die Zukunft des SEO mit Searchsquare. 
           </p>
           <Link
             href="/start-free"
-            className="bg-blue-600 text-white px-8 py-4 rounded-md text-xl font-medium inline-block mb-8 lg:mb-10 hover:bg-blue-700 transition-colors"
+            className="bg-blue-600 text-white px-8 py-4 rounded-full text-xl font-medium inline-block mb-6 lg:mb-8 hover:bg-blue-700 transition-colors"
           >
             START FOR FREE
           </Link>
