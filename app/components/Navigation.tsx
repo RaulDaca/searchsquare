@@ -157,20 +157,24 @@ export default function UpdatedDropdownNavigationWithImage() {
           {mobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </button>
 
-        <div className="hidden md:flex items-center space-x-8">
-          {renderNavItems}
-          <Link href="/pricing" className="text-white hover:text-purple-400 transition-colors duration-200 text-lg font-semibold">
-            Pricing
-          </Link>
-          <button className="text-white hover:text-purple-400 transition-colors duration-200 text-lg font-semibold">
-            Log in
-          </button>
-          <button className="bg-gray-700 text-white px-6 py-3 rounded-full hover:bg-purple-800 transition-colors duration-200 text-base font-semibold shadow-md hover:shadow-lg">
-            GET STARTED
-          </button>
-          <button className="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-blue-600 hover:text-white transition-colors duration-200 text-base font-semibold shadow-md hover:shadow-lg">
-            SEE DEMO
-          </button>
+        <div className="hidden md:flex items-center justify-between flex-grow ml-8">
+          <div className="flex items-center space-x-8 mx-auto">
+            {renderNavItems}
+            <Link href="/pricing" className="text-white hover:text-purple-400 transition-colors duration-200 text-lg font-semibold">
+              Pricing
+            </Link>
+          </div>
+          <div className="flex items-center space-x-4">
+            <button className="text-white hover:text-purple-400 transition-colors duration-200 text-lg font-semibold">
+              Log in
+            </button>
+            <button className="bg-gray-700 text-white px-6 py-3 rounded-full hover:bg-purple-800 transition-colors duration-200 text-base font-semibold shadow-md hover:shadow-lg">
+              GET STARTED
+            </button>
+            <button className="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-blue-600 hover:text-white transition-colors duration-200 text-base font-semibold shadow-md hover:shadow-lg">
+              SEE DEMO
+            </button>
+          </div>
         </div>
 
         {mobileMenuOpen && (
