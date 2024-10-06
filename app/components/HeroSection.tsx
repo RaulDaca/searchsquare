@@ -3,14 +3,20 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <div className="relative overflow-hidden h-[90vh]">
+    <div className="relative overflow-hidden h-[130vh]">
       <div 
         className="absolute inset-0 z-0"
         style={{
           background: `
-            radial-gradient(ellipse at top, #1c1c1c 0%, #0c0c0c 70%, transparent 95%),
+            radial-gradient(ellipse 180% 100% at 50% 0%, #000000 0%, #000000 55%, transparent 72%),
             linear-gradient(to right, #0000ff, #800080)
           `,
+        }}
+      ></div>
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          background: 'linear-gradient(to bottom, transparent 60%, #ffffff 100%)',
         }}
       ></div>
       <main className="container mx-auto px-4 pt-12 pb-28 md:pt-20 md:pb-36 lg:pt-24 lg:pb-44 text-center relative z-20 text-white">
@@ -31,7 +37,7 @@ export default function Hero() {
           >
             START FOR FREE
           </Link>
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-12">
+          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-12 mb-8">
             <div className="flex items-center">
               <svg
                 className="w-6 h-6 mr-3 text-blue-500"
@@ -63,17 +69,17 @@ export default function Hero() {
               <span className="text-lg">Free leads included</span>
             </div>
           </div>
+          <div className="flex justify-center">
+            <Image
+              src="/images/DALL·E 2024-10-06 19.34.11 - A sleek, minimalistic SEO tool dashboard displayed on a floating tablet in a 3D style. The interface shows a clean analytics section with key metrics -Photoroom.png"
+              alt="SEO Tool Dashboard"
+              width={600}
+              height={300}
+              className="object-contain"
+            />
+          </div>
         </div>
       </main>
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-4xl z-20">
-        <Image
-          src="/placeholder.svg?height=300&width=800"
-          alt="Analytics Dashboard"
-          width={800}
-          height={300}
-          className="object-contain"
-        />
-      </div>
     </div>
   )
 }
