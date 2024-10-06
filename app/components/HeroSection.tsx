@@ -3,8 +3,17 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <div className="bg-gradient-to-tl from-purple-900 via-black to-black text-white relative overflow-hidden h-[90vh]">
-      <main className="container mx-auto px-4 pt-12 pb-28 md:pt-20 md:pb-36 lg:pt-24 lg:pb-44 text-center relative z-10">
+    <div className="relative overflow-hidden h-[90vh]">
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          background: `
+            radial-gradient(ellipse at top, #1c1c1c 0%, #0c0c0c 70%, transparent 95%),
+            linear-gradient(to right, #0000ff, #800080)
+          `,
+        }}
+      ></div>
+      <main className="container mx-auto px-4 pt-12 pb-28 md:pt-20 md:pb-36 lg:pt-24 lg:pb-44 text-center relative z-20 text-white">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 lg:mb-6">
             Rank, Boost & Traffic 
@@ -56,12 +65,12 @@ export default function Hero() {
           </div>
         </div>
       </main>
-      <div className="absolute bottom-0 left-1/4 transform -translate-x-1/2 w-1/2 max-w-lg">
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-4xl z-20">
         <Image
-          src="/images/IMG_1437-Photoroom.png"
-          alt="Alien-like creature"
-          width={600}
-          height={400}
+          src="/placeholder.svg?height=300&width=800"
+          alt="Analytics Dashboard"
+          width={800}
+          height={300}
           className="object-contain"
         />
       </div>

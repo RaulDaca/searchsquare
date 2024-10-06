@@ -137,7 +137,7 @@ export default function UpdatedDropdownNavigationWithImage() {
   ))
 
   return (
-    <header className="bg-black text-white py-6 px-4 md:px-8 font-sans relative z-40" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <header className="bg-[#1c1c1c] text-white py-6 px-4 md:px-8 font-sans relative z-40" style={{ fontFamily: "'Inter', sans-serif" }}>
       <nav className="container mx-auto flex items-center justify-between">
         <Link href="/" className="text-2xl md:text-3xl font-extrabold flex items-center text-white">
           <svg className="w-8 h-8 md:w-10 md:h-10 mr-2 md:mr-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -178,7 +178,7 @@ export default function UpdatedDropdownNavigationWithImage() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="absolute top-20 left-0 right-0 bg-black p-4 md:hidden z-50">
+          <div className="absolute top-20 left-0 right-0 bg-[#1c1c1c] p-4 md:hidden z-50">
             {navItems.map((item) => (
               <div key={item.title} className="py-2">
                 <button
