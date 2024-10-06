@@ -9,8 +9,11 @@ export default function Hero() {
         style={{
           background: `
             radial-gradient(ellipse 180% 100% at 50% 0%, #000000 0%, #000000 55%, transparent 72%),
+            radial-gradient(circle at 0% 30%, #0000ff 0%, transparent 50%),
+            radial-gradient(circle at 100% 30%, #800080 0%, transparent 50%),
             linear-gradient(to right, #0000ff, #800080)
           `,
+          backgroundBlendMode: 'normal, screen, screen, normal',
         }}
       ></div>
       <div 
@@ -32,7 +35,7 @@ export default function Hero() {
             KI gesteuerte Suchmaschinenoptimierung für maximale Performance. Entdecken Sie die Zukunft des SEO mit Searchsquare. 
           </p>
           <Link
-            href="/start-free"
+            href="/register" // Geändert von "/start-free" zu "/register"
             className="bg-blue-600 text-white px-8 py-4 rounded-full text-xl font-medium inline-block mb-6 lg:mb-8 hover:bg-blue-700 transition-colors"
           >
             START FOR FREE

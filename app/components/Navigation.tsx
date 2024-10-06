@@ -165,12 +165,12 @@ export default function UpdatedDropdownNavigationWithImage() {
             </Link>
           </div>
           <div className="flex items-center space-x-4">
-            <button className="text-white hover:text-purple-400 transition-colors duration-200 text-lg font-semibold">
+            <Link href="/login" className="text-white hover:text-purple-400 transition-colors duration-200 text-lg font-semibold">
               Log in
-            </button>
-            <button className="bg-gray-700 text-white px-6 py-3 rounded-full hover:bg-purple-800 transition-colors duration-200 text-base font-semibold shadow-md hover:shadow-lg">
+            </Link>
+            <Link href="/register" className="bg-gray-700 text-white px-6 py-3 rounded-full hover:bg-purple-800 transition-colors duration-200 text-base font-semibold shadow-md hover:shadow-lg">
               GET STARTED
-            </button>
+            </Link>
             <button className="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-blue-600 hover:text-white transition-colors duration-200 text-base font-semibold shadow-md hover:shadow-lg">
               SEE DEMO
             </button>
@@ -206,15 +206,12 @@ export default function UpdatedDropdownNavigationWithImage() {
                 )}
               </div>
             ))}
-            <Link href="/pricing" className="block py-2 text-white hover:text-purple-400 transition-colors duration-200 text-lg font-semibold">
-              Pricing
-            </Link>
-            <button className="block w-full text-left py-2 text-white hover:text-purple-400 transition-colors duration-200 text-lg font-semibold">
+            <Link href="/login" className="block w-full text-left py-2 text-white hover:text-purple-400 transition-colors duration-200 text-lg font-semibold">
               Log in
-            </button>
-            <button className="w-full bg-gray-700 text-white px-6 py-3 rounded-full hover:bg-purple-800 transition-colors duration-200 text-base font-semibold shadow-md hover:shadow-lg mt-4">
+            </Link>
+            <Link href="/register" className="block w-full text-left py-2 text-white hover:text-purple-400 transition-colors duration-200 text-lg font-semibold">
               GET STARTED
-            </button>
+            </Link>
             <button className="w-full bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-blue-600 hover:text-white transition-colors duration-200 text-base font-semibold shadow-md hover:shadow-lg mt-4">
               SEE DEMO
             </button>
