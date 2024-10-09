@@ -32,7 +32,7 @@ export default function Component() {
       {/* Sidebar */}
       <div 
         ref={sidebarRef}
-        className={`fixed left-0 top-0 bottom-0 transition-all duration-300 ease-in-out flex flex-col items-start py-4 border-r border-white border-opacity-10 overflow-hidden`}
+        className={`fixed left-0 top-0 h-full transition-all duration-300 ease-in-out flex flex-col items-start py-4 border-r border-white border-opacity-10 overflow-hidden`}
         style={{
           width: `${sidebarWidth}px`,
           background: 'linear-gradient(to bottom, #000000 50%, #1a237e, #4a148c)'
@@ -66,7 +66,7 @@ export default function Component() {
       </div>
 
       {/* Main Content */}
-      <div className={`flex-grow flex flex-col min-h-screen transition-all duration-300 ease-in-out`} style={{ marginLeft: `${sidebarWidth}px` }}>
+      <div className={`flex-grow flex flex-col transition-all duration-300 ease-in-out`} style={{ marginLeft: `${sidebarWidth}px` }}>
         <header className="p-4 flex justify-between items-center">
           <NextLink href="/" className="text-2xl font-bold">
             searchSQUARE
