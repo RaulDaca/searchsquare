@@ -32,17 +32,17 @@ export default function Component() {
       {/* Sidebar */}
       <div 
         ref={sidebarRef}
-        className={`fixed left-0 top-0 h-full transition-all duration-300 ease-in-out flex flex-col items-start py-4 border-r border-white border-opacity-10 overflow-hidden`}
+        className={`fixed left-0 top-0 bottom-0 transition-all duration-300 ease-in-out flex flex-col items-start py-4 border-r border-white border-opacity-10 overflow-hidden`}
         style={{
           width: `${sidebarWidth}px`,
           background: 'linear-gradient(to bottom, #000000 50%, #1a237e, #4a148c)'
         }}
       >
-        <div className="mb-8 w-full flex justify-center">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="20" height="20" fill="white"/>
-            <rect x="5" y="5" width="14" height="14" fill="black"/>
-            <rect x="8" y="8" width="8" height="8" fill="white"/>
+        <div className={`mb-8 w-full flex ${isSidebarOpen ? 'justify-center' : 'justify-end pr-3'}`}>
+          <svg className="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
         {sidebarItems.map((item, index) => (
@@ -66,9 +66,11 @@ export default function Component() {
       </div>
 
       {/* Main Content */}
-      <div className={`flex-grow flex flex-col transition-all duration-300 ease-in-out`} style={{ marginLeft: `${sidebarWidth}px` }}>
+      <div className={`flex-grow flex flex-col min-h-screen transition-all duration-300 ease-in-out`} style={{ marginLeft: `${sidebarWidth}px` }}>
         <header className="p-4 flex justify-between items-center">
-          <div className="text-2xl font-bold">searchSQUARE</div>
+          <NextLink href="/" className="text-2xl font-bold">
+            searchSQUARE
+          </NextLink>
           <div className="flex items-center space-x-2">
             <span className="text-sm mr-2">Dave</span>
             <button className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
@@ -79,10 +81,10 @@ export default function Component() {
         
         <main className="flex-grow flex flex-col items-center justify-center px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            What can I help you ship?
+            Sollen wir dich wieder einranken?
           </h1>
           <p className="text-gray-400 mb-8 text-center">
-            Generate UI, ask questions, debug, execute code, and much more.
+            generate SEO strategies, ask questions, debug, execute Content Power, and much more.
           </p>
           
           <div className="w-full max-w-2xl">
